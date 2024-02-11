@@ -89,22 +89,10 @@ function doPost(e) {
       var replyMessage = getNearCafes(userMessage.latitude, userMessage.longitude);
       var columns = replyMessage.map(function (v) {
         var title = v.name;
-        // var postbackLabel = '行ったことがある';
-        // var postbackData = 'action=visited&uid=' + v.uid;
-        // if (isVisited(v.uid, userId)) {
-        //   title += ' (★訪問済み)'
-        //   postbackLabel = '訪問済み を取り消す';
-        //   postbackData = 'action=unvisited&uid=' + v.uid;
-        // }
         return {
           'title': title,
           'text': 'ここから ' + v.distance + 'km ― ' + v.address,
           'actions': [
-            // {
-            //   'type': 'postback',
-            //   'label': postbackLabel,
-            //   'data': postbackData
-            // },
             {
               'type': 'uri',
               'label': 'このカフェを検索',
